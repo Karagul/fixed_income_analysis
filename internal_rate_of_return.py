@@ -10,11 +10,12 @@ def yield_calc(calcInfo, price, interestAssumption):
   
   return round(calcAmount)
 
-def calcMultipleYield(calcInfo, price):
+def calcMultipleYield(cashFlow, price):
   initialYield = 1.00
 
+  # assuming the yield will be always less than 20.00
   while initialYield < 20.00:
-    trialYield = yield_calc(calcInfo, price, initialYield)
+    trialYield = yield_calc(cashFlow, price, initialYield)
 
     if trialYield - price <= 1 and trialYield - price >= -1:
       return round(initialYield, 2)
